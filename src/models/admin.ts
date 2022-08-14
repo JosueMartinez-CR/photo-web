@@ -2,13 +2,13 @@ import { Schema,model,Document} from "mongoose";
 
 const schema = new Schema ({
     name: String,
-    username: String,
+    email: String,
     password: String,
 })
 
 interface IAdmin extends Document {
     name: string,
-    username: string,
+    email: string,
     password: string,
 }
 

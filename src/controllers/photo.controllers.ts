@@ -7,24 +7,33 @@ import fs from 'fs-extra';
 
 export async function createPhoto (req:Request, res:Response){
  
-    const {title,description} = req.body;
+    const {title,tag,description} = req.body;
 
     const newPhoto = {
         title: title,
+        tag: tag,
         description: description,
-        imagePath: req.file?.path,
-
+        imagePath: req.file?.path
     }
 
-    const photo = new Photo (newPhoto);
-    await photo.save();
+    if (tag){
+        const photo = new Photo (newPhoto);
+        await photo.save();
 
     return res.json({
         message: 'Photo successfully saved',
         photo
+    })
 
+    }
+    else{
+
+        return res.json({
+            message: 'We need a tag!'
 
     })
+    
+}
 }
 
 export async function getPhotos (req:Request, res:Response): Promise <Response> {

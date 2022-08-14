@@ -4,7 +4,7 @@ import { Router } from "express";
 import multer from '../libs/multer';
 import { createPhoto,getPhotos, getPhoto,DeletePhoto, updatePhoto} from "../controllers/photo.controllers";
 import { createAdmin, DeleteAdmin, getAdmin } from "../controllers/admin.controllers";
-
+import { loggin } from "../controllers/auth";
 const router = Router();
 
 
@@ -26,6 +26,9 @@ router.route('/admin')
     router.route('/admin/:id')
     .get(getAdmin)
     .put(DeleteAdmin)
+
+router.route('/auth')
+    .post(loggin)
 
     
 export default router;

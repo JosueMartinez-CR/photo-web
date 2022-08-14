@@ -1,12 +1,13 @@
 import {Request,Response} from 'express';
 import Admin from '../models/admin';
+import bcrypt from 'bcrypt';
 
 export async function createAdmin (req:Request, res:Response){
-    const {name,username,password} = req.body;
+    const {name,email,password} = req.body;
     const newAdmin = {
         name: name,
-        username: username,
-        password: password
+        email: email,
+        password: bcrypt.hashSync( password, 10 )
     }
 
     const admin= new Admin (newAdmin);
@@ -15,8 +16,6 @@ export async function createAdmin (req:Request, res:Response){
     return res.json({
         message: 'Admin successfully saved',
         admin
-
-
     })
 }
 

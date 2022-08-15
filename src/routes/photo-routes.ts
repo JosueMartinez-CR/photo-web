@@ -5,19 +5,20 @@ import multer from '../libs/multer';
 import { createPhoto,getPhotos, getPhoto,DeletePhoto, updatePhoto} from "../controllers/photo.controllers";
 import { createAdmin, DeleteAdmin, getAdmin } from "../controllers/admin.controllers";
 import { loggin } from "../controllers/auth";
+import { tokenValidation } from '../libs/verifyToken';
 const router = Router();
 
 
 
 router.route('/photos')
-    .get(getPhotos)
-    .post(multer.single('image'),createPhoto)  //cada vez que se suba UNA foto se llamara image
+    .get(tokenValidation,getPhotos)
+    .post(tokenValidation,multer.single('image'),createPhoto)  //cada vez que se suba UNA foto se llamara image
 
 
 router.route('/photos/:id')
-    .get(getPhoto)
-    .delete(DeletePhoto)
-    .put(updatePhoto)
+    .get(tokenValidation,getPhoto)
+    .delete(tokenValidation,DeletePhoto)
+    .put(tokenValidation,updatePhoto)
 
 
 router.route('/admin')

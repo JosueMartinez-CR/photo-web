@@ -34,13 +34,3 @@ export async function DeleteAdmin(req:Request, res:Response):Promise <Response>{
     })
     
 }
-
-export async function prubea(req:Request, res:Response):Promise <Response>{
-
-
-    return res.json({
-        message: 'Hola desde heroku!'
-    
-    })
-    
-}

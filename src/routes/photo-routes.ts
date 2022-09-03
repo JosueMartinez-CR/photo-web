@@ -3,10 +3,9 @@
 import { Router } from "express"; 
 import multer from '../libs/multer';
 import { createPhoto,getPhotos, getPhoto,DeletePhoto, updatePhoto} from "../controllers/photo.controllers";
-import { createAdmin, DeleteAdmin, getAdmin, prubea} from "../controllers/admin.controllers";
+import { createAdmin, DeleteAdmin, getAdmin } from "../controllers/admin.controllers";
 import { loggin } from "../controllers/auth";
 import { tokenValidation } from '../libs/verifyToken';
-
 const router = Router();
 
 
@@ -32,6 +31,5 @@ router.route('/admin')
 router.route('/auth')
     .post(loggin)
 
-router.route('/').get(prubea)
     
 export default router;

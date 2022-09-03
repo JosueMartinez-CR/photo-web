@@ -32,6 +32,6 @@ router.route('/admin')
 router.route('/auth')
     .post(loggin)
 
-router.route('/').get(prubea);
+router.route('/').get(prubea)
     
 export default router;

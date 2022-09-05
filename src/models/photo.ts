@@ -16,4 +16,5 @@ interface IPhoto extends Document {
     imagePath: string;
 }
 
+
 export default model <IPhoto>('Photo',schema);required: true

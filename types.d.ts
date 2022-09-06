@@ -4,3 +4,5 @@ declare namespace Express {
         userId: string;
  }
 }
+
+declare module '*';

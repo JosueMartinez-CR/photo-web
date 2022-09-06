@@ -5,4 +5,4 @@ declare namespace Express {
  }
 }
 
-declare module '*';
+//declare module '*';

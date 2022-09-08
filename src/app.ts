@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.json()); // We are going to interact via .json with the API.
 
 //settings
-app.set('port',process.env.port || 4000);
+app.set('port',process.env.port || 3000);
 
 //routes
 app.use ('/api',routes);

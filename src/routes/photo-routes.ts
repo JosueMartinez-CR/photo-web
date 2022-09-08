@@ -9,7 +9,7 @@ import { tokenValidation } from '../libs/verifyToken';
 const router = Router();
 
 
-
+router.get('/',(req,res)=>res.send('Hello world'))
 router.route('/photos')
     .get(tokenValidation,getPhotos)
     .post(tokenValidation,multer.single('image'),createPhoto)  //cada vez que se suba UNA foto se llamara image
